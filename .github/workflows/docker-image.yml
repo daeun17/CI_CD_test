@@ -17,3 +17,9 @@ jobs:
     - name: Build the Docker image for my project 
       run: docker build --tag daeun17/gitaction:latest .
 
+
+    - name: Login to DockerHUb 
+      run: docker login -u ${{secrets.DOCKER_NAME}} -p ${{secrets.DOCER_PASSWORD}}
+    
+    - name: Push the Docker image to the repository 
+      run: docker push daeun17/gitaction:latest
